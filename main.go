@@ -35,19 +35,18 @@ import (
 	"time"
 )
 
-var Usage = func() {
-	fmt.Fprintf(flag.CommandLine.Output(), "Usage: %s [-port PORT] [-writefile] FILE...\n", os.Args[0])
-	flag.PrintDefaults()
-}
-
 func main() {
+	flag.Usage = func() {
+		fmt.Fprintf(flag.CommandLine.Output(), "Usage: %s [-port PORT] [-writefile] FILE...\n", os.Args[0])
+		flag.PrintDefaults()
+	}
 	port := flag.String("port", "/dev/ttyUSB0", "Serial port to write to")
 	writefile := flag.Bool("writefile", false, "Treat PORT as file, and write to file")
 	flag.Parse()
 	confs := flag.Args()
 
 	if len(confs) < 1 {
-		Usage()
+		flag.Usage()
 		return
 	}
 

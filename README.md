@@ -6,4 +6,9 @@ on your own for now.
 I'm working on this in my "free" time in the SIT ICT lab, so I don't have much 
 time for documentation yet. I still need to do my labs after all. 
 
+```
+go get github.com/serverwentdown/cisco-ios-apply
+apply -help
+```
+
 <!-- vim: set conceallevel=2 et ts=2 sw=2: -->
